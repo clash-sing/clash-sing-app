@@ -10,7 +10,7 @@
 
 ## 🌟 特性
 
-- ✅ **跨平台支持**：一次开发，多端运行（Android / iOS / Windows / macOS / Linux）
+- ✅ **跨平台支持**：一次开发，多端运行（Android / iOS / Windows / macOS）
 - ⚡ **高性能代理**：底层使用 [sing-box](https://github.com/SagerNet/sing-box) 引擎，支持多种协议（如 Hysteria2、Hysteria、AnyTLS、VLESS、Trojan、Shadowsocks、HTTP(S)、SOCKS 等）
 - 📦 **Clash 兼容**：原生支持 Clash Meta / Clash Premium 配置文件（`.yaml`）
 - 🔒 **本地运行**：所有代理逻辑在设备本地执行，保障隐私与安全
