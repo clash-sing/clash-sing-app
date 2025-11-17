@@ -10,10 +10,10 @@ import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
-/// Callers can lookup localized strings with an instance of AppLocalizations
-/// returned by `AppLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of S
+/// returned by `S.of(context)`.
 ///
-/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// Applications need to include `S.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
@@ -21,8 +21,8 @@ import 'app_localizations_zh.dart';
 /// import 'generated/app_localizations.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: AppLocalizations.localizationsDelegates,
-///   supportedLocales: AppLocalizations.supportedLocales,
+///   localizationsDelegates: S.localizationsDelegates,
+///   supportedLocales: S.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -59,20 +59,19 @@ import 'app_localizations_zh.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// be consistent with the languages listed in the S.supportedLocales
 /// property.
-abstract class AppLocalizations {
-  AppLocalizations(String locale)
+abstract class S {
+  S(String locale)
     : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static S? of(BuildContext context) {
+    return Localizations.of<S>(context, S);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<S> delegate = _SDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -100,30 +99,29 @@ abstract class AppLocalizations {
 
   /// No description provided for @helloWorld.
   ///
-  /// In en, this message translates to:
-  /// **'Hello World!'**
+  /// In zh, this message translates to:
+  /// **'你好世界！'**
   String get helloWorld;
 
   /// No description provided for @youHavePushedTheButtonThisManyTimes.
   ///
-  /// In en, this message translates to:
-  /// **'You have pushed the button this many times:'**
+  /// In zh, this message translates to:
+  /// **'你已经按了这么多次按钮：'**
   String get youHavePushedTheButtonThisManyTimes;
 
   /// No description provided for @homePageTitle.
   ///
-  /// In en, this message translates to:
-  /// **'Flutter Demo Home Page'**
+  /// In zh, this message translates to:
+  /// **'Flutter 示例主页'**
   String get homePageTitle;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+class _SDelegate extends LocalizationsDelegate<S> {
+  const _SDelegate();
 
   @override
-  Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  Future<S> load(Locale locale) {
+    return SynchronousFuture<S>(lookupS(locale));
   }
 
   @override
@@ -131,20 +129,20 @@ class _AppLocalizationsDelegate
       <String>['en', 'zh'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_AppLocalizationsDelegate old) => false;
+  bool shouldReload(_SDelegate old) => false;
 }
 
-AppLocalizations lookupAppLocalizations(Locale locale) {
+S lookupS(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en':
-      return AppLocalizationsEn();
+      return SEn();
     case 'zh':
-      return AppLocalizationsZh();
+      return SZh();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'S.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
     'that was used.',
