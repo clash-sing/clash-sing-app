@@ -39,8 +39,8 @@ dependencies:
   intl: ^0.20.2
   riverpod: ^3.0.3
   mmkv: ^2.2.4
-#  flutter_sing_box:
-#    path: ../flutter_sing_box
+  flutter_sing_box:
+    path: ../flutter_sing_box
 
 dev_dependencies:
   flutter_test:
