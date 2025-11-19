@@ -1,0 +1,1 @@
+const double desktopBreakpoint = 720.0;
